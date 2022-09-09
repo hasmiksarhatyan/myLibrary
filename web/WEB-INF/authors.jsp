@@ -1,5 +1,4 @@
 <%@ page import="java.util.List" %>
-<%@ page import="model.Book" %>
 <%@ page import="model.Author" %><%--
   Created by IntelliJ IDEA.
   User: User
@@ -18,6 +17,7 @@
 %>
 <table border="1">
     <tr>
+        <th>image</th>
         <th>id</th>
         <th>name</th>
         <th>surname</th>
@@ -28,6 +28,14 @@
     </tr>
     <% for (Author author : authors) {%>
     <tr>
+        <td>
+            <% if (author.getImage() == null || author.getImage().length()==0) { %>
+            <img src="/image/defaultpic.png" width="100"/>
+            <% } else { %>
+            <img src="/getImage?image=<%=author.getImage()%>" width="100" />
+            <% } %>
+
+        </td>
         <td><%=author.getId()%>
         </td>
         <td><%=author.getName()%>

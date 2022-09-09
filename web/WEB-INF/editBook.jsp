@@ -18,11 +18,12 @@
     List<Author> authors = (List<Author>) request.getAttribute("authors");
 %>
 Please update book's data
-<form action="/books/edit" method="post">
+<form action="/books/edit" method="post"enctype="multipart/form-data">
     <input type="hidden" name="bookId" value="<%=book.getId()%>">
     <input type="text" name="title" value="<%=book.getTitle()%>"/> <br>
     <input type="text" name="description" value="<%=book.getDescription()%>"/> <br>
     <input type="number" name="price" value="<%=book.getPrice()%>"/> <br>
+    <input type="file" name="image"> <br>
     Author
     <select name="authorId">
         <%
